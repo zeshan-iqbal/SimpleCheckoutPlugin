@@ -1,0 +1,2 @@
+# SimpleCheckoutPlugin
+Nop Plugin
