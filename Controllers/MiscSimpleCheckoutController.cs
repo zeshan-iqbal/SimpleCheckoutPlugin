@@ -28,7 +28,7 @@ namespace Nop.Plugin.Misc.SimpleCheckOut.Controllers
         [AdminAuthorize]
         public ActionResult Configure()
         {
-            return View("~/Plugins/Misc.FacebookShop/Views/MiscFacebookShop/Configure.cshtml");
+            return View("~/Plugins/Misc.FacebookShop/Views/MiscSimpleCheckout/Configure.cshtml");
         }
         #endregion
     }
