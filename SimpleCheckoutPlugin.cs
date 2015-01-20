@@ -3,11 +3,11 @@ using Nop.Services.Common;
 using System;
 using System.Web.Routing;
 
-namespace Nop.Plugin.Misc.SimpleCheckOut
+namespace Nop.Plugin.Misc.SimpleCheckout
 {
     public class SimpleCheckoutPlugin : BasePlugin, IMiscPlugin
     {
-        #region Methods
+        #region IMiscPlugin Implementation
         /// <summary>
         /// Gets a route for provider configuration
         /// </summary>
@@ -19,6 +19,18 @@ namespace Nop.Plugin.Misc.SimpleCheckOut
             actionName = "Configure";
             controllerName = "MiscSimpleCheckout";
             routeValues = new RouteValueDictionary { { "Namespaces", "Nop.Plugin.Misc.SimpleCheckout.Controllers" }, { "area", null } };
+        }
+        #endregion
+
+        #region BasePlugin Overrides
+        public override void Install()
+        {
+            base.Install();
+        }
+
+        public override void Uninstall()
+        {
+            base.Uninstall();
         }
         #endregion
     }

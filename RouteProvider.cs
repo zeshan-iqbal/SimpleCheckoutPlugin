@@ -2,7 +2,7 @@
 using System;
 using System.Web.Routing;
 
-namespace Nop.Plugin.Misc.SimpleCheckOut
+namespace Nop.Plugin.Misc.SimpleCheckout
 {
     public partial class RouteProvider : IRouteProvider
     {

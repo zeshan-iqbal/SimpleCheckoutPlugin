@@ -6,7 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Web.Mvc;
 
-namespace Nop.Plugin.Misc.SimpleCheckOut.Controllers
+namespace Nop.Plugin.Misc.SimpleCheckout.Controllers
 {
     public class MiscSimpleCheckoutController : BasePluginController
     {
@@ -14,10 +14,6 @@ namespace Nop.Plugin.Misc.SimpleCheckOut.Controllers
         #endregion
 
         #region ctor
-        public MiscSimpleCheckoutController()
-        {
-
-        }
         #endregion
 
         #region Utilities
