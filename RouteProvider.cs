@@ -15,6 +15,11 @@ namespace Nop.Plugin.Misc.SimpleCheckout
             #endregion
 
             #region Register Routes
+            routes.MapRoute("Plugin.Misc.SimpleCheckout.OnePageCheckout",
+                "onepagecheckout",
+                new { controller = "MiscSimpleCheckout", action = "OnePageCheckout" },
+                new[] { "Nop.Plugin.Misc.SimpleCheckout.Controllers" }
+                );
             /*
              //home page
             routes.MapRoute("Plugin.Misc.FacebookShop.Index",
