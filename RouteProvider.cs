@@ -1,5 +1,7 @@
-﻿using Nop.Web.Framework.Mvc.Routes;
+﻿using Nop.Plugin.Misc.SimpleCheckOut.Infrastructure;
+using Nop.Web.Framework.Mvc.Routes;
 using System;
+using System.Web.Mvc;
 using System.Web.Routing;
 
 namespace Nop.Plugin.Misc.SimpleCheckout
@@ -8,7 +10,11 @@ namespace Nop.Plugin.Misc.SimpleCheckout
     {
         public void RegisterRoutes(RouteCollection routes)
         {
-            #region Example Routes
+            #region Register Custom ViewEngine
+            ViewEngines.Engines.Insert(0, new CustomViewEngine());
+            #endregion
+
+            #region Register Routes
             /*
              //home page
             routes.MapRoute("Plugin.Misc.FacebookShop.Index",
