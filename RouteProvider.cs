@@ -16,7 +16,7 @@ namespace Nop.Plugin.Misc.SimpleCheckout
 
             #region Register Routes
             routes.MapRoute("Plugin.Misc.SimpleCheckout.OnePageCheckout",
-                "onepagecheckout",
+                "onepagecheckout/",
                 new { controller = "MiscSimpleCheckout", action = "OnePageCheckout" },
                 new[] { "Nop.Plugin.Misc.SimpleCheckout.Controllers" }
                 );
@@ -48,7 +48,7 @@ namespace Nop.Plugin.Misc.SimpleCheckout
 
         public int Priority
         {
-            get { return 0; }
+            get { return 1; }
         }
     }
 }
