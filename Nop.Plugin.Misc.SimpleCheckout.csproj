@@ -78,6 +78,16 @@
   <ItemGroup>
     <Compile Include="Controllers\MiscSimpleCheckoutController.cs" />
     <Compile Include="Infrastructure\CustomViewEngine.cs" />
+    <Compile Include="Models\AddressModel.cs" />
+    <Compile Include="Models\CheckoutBillingAddressModel.cs" />
+    <Compile Include="Models\CheckoutCompletedModel.cs" />
+    <Compile Include="Models\CheckoutConfirmModel.cs" />
+    <Compile Include="Models\CheckoutPaymentInfoModel.cs" />
+    <Compile Include="Models\CheckoutPaymentMethodModel.cs" />
+    <Compile Include="Models\CheckoutProgressModel.cs" />
+    <Compile Include="Models\CheckoutShippingAddressModel.cs" />
+    <Compile Include="Models\CheckoutShippingMethodModel.cs" />
+    <Compile Include="Models\UpdateSectionJsonModel.cs" />
     <Compile Include="Models\OnePageCheckoutModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RouteProvider.cs" />
@@ -124,24 +134,7 @@
     </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
-  <ProjectExtensions>
-    <VisualStudio>
-      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
-        <WebProjectProperties>
-          <UseIIS>True</UseIIS>
-          <AutoAssignPort>True</AutoAssignPort>
-          <DevelopmentServerPort>0</DevelopmentServerPort>
-          <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>http://localhost:54618/</IISUrl>
-          <NTLMAuthentication>False</NTLMAuthentication>
-          <UseCustomServer>False</UseCustomServer>
-          <CustomServerUrl>
-          </CustomServerUrl>
-          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
-        </WebProjectProperties>
-      </FlavorProperties>
-    </VisualStudio>
-  </ProjectExtensions>
+  <ProjectExtensions />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">

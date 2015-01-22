@@ -2,10 +2,12 @@
 using System.Web.Mvc;
 using Nop.Web.Framework;
 using Nop.Web.Framework.Mvc;
+using FluentValidation.Attributes;
+using Nop.Plugin.Misc.SimpleCheckOut.Validators;
 
 namespace Nop.Plugin.Misc.SimpleCheckOut.Models
 {
-   // [Validator(typeof(AddressValidator))]
+    [Validator(typeof(AddressValidator))]
     public partial class AddressModel : BaseNopEntityModel
     {
         public AddressModel()
