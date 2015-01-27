@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using Nop.Web.Framework.Mvc;
 
-namespace Nop.Plugin.Misc.SimpleCheckOut.Models
+namespace Nop.Plugin.Misc.SimpleCheckout.Models
 {
     public partial class CheckoutConfirmModel : BaseNopModel
     {

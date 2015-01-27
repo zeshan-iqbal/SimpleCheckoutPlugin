@@ -1,4 +1,4 @@
-﻿using Nop.Plugin.Misc.SimpleCheckOut.Infrastructure;
+﻿using Nop.Plugin.Misc.SimpleCheckout.Infrastructure;
 using Nop.Web.Framework.Mvc.Routes;
 using System;
 using System.Web.Mvc;

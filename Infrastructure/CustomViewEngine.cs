@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Nop.Plugin.Misc.SimpleCheckOut.Infrastructure
+namespace Nop.Plugin.Misc.SimpleCheckout.Infrastructure
 {
     public class CustomViewEngine : ThemeableRazorViewEngine
     {

@@ -1,12 +1,12 @@
 ﻿using FluentValidation;
 using FluentValidation.Results;
 using Nop.Core.Domain.Common;
-using Nop.Plugin.Misc.SimpleCheckOut.Models;
+using Nop.Plugin.Misc.SimpleCheckout.Models;
 using Nop.Services.Directory;
 using Nop.Services.Localization;
 using Nop.Web.Framework.Validators;
 
-namespace Nop.Plugin.Misc.SimpleCheckOut.Validators
+namespace Nop.Plugin.Misc.SimpleCheckout.Validators
 {
     public class AddressValidator : BaseNopValidator<AddressModel>
     {

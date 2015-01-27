@@ -1,5 +1,5 @@
 ﻿
-namespace Nop.Plugin.Misc.SimpleCheckOut.Models
+namespace Nop.Plugin.Misc.SimpleCheckout.Models
 {
     public class UpdateSectionJsonModel
     {

@@ -3,9 +3,9 @@ using System.Web.Mvc;
 using Nop.Web.Framework;
 using Nop.Web.Framework.Mvc;
 using FluentValidation.Attributes;
-using Nop.Plugin.Misc.SimpleCheckOut.Validators;
+using Nop.Plugin.Misc.SimpleCheckout.Validators;
 
-namespace Nop.Plugin.Misc.SimpleCheckOut.Models
+namespace Nop.Plugin.Misc.SimpleCheckout.Models
 {
     [Validator(typeof(AddressValidator))]
     public partial class AddressModel : BaseNopEntityModel
@@ -14,6 +14,7 @@ namespace Nop.Plugin.Misc.SimpleCheckOut.Models
         {
             AvailableCountries = new List<SelectListItem>();
             AvailableStates = new List<SelectListItem>();
+            CustomAddressAttributes = new List<AddressAttributeModel>();
         }
 
         [NopResourceDisplayName("Address.Fields.FirstName")]
@@ -86,5 +87,8 @@ namespace Nop.Plugin.Misc.SimpleCheckOut.Models
         public IList<SelectListItem> AvailableCountries { get; set; }
         public IList<SelectListItem> AvailableStates { get; set; }
 
+
+        public string FormattedCustomAddressAttributes { get; set; }
+        public IList<AddressAttributeModel> CustomAddressAttributes { get; set; }
     }
 }

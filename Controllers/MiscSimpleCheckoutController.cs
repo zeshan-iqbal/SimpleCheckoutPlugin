@@ -5,7 +5,7 @@ using Nop.Core.Domain.Orders;
 using Nop.Core.Domain.Payments;
 using Nop.Core.Domain.Shipping;
 using Nop.Core.Plugins;
-using Nop.Plugin.Misc.SimpleCheckOut.Models;
+using Nop.Plugin.Misc.SimpleCheckout.Models;
 using Nop.Services.Catalog;
 using Nop.Services.Common;
 using Nop.Services.Customers;
@@ -18,6 +18,7 @@ using Nop.Services.Shipping;
 using Nop.Services.Stores;
 using Nop.Services.Tax;
 using Nop.Web.Framework.Controllers;
+using Nop.Plugin.Misc.SimpleCheckout.Extensions;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -126,6 +127,44 @@ namespace Nop.Plugin.Misc.SimpleCheckout.Controllers
         #endregion
 
         #region Utilities
+         [NonAction]
+        protected virtual CheckoutBillingAddressModel PrepareBillingAddressModel(int? selectedCountryId = null, 
+            bool prePopulateNewAddressWithCustomerFields = false)
+        {
+            var model = new CheckoutBillingAddressModel();
+            //existing addresses
+            var addresses = _workContext.CurrentCustomer.Addresses
+                //allow billing
+                .Where(a => a.Country == null || a.Country.AllowsBilling)
+                //enabled for the current store
+                .Where(a => a.Country == null || _storeMappingService.Authorize(a.Country))
+                .ToList();
+            foreach (var address in addresses)
+            {
+                var addressModel = new AddressModel();
+                addressModel.PrepareModel(
+                    address: address, 
+                    excludeProperties: false, 
+                    addressSettings: _addressSettings,
+                    addressAttributeFormatter: _addressAttributeFormatter);
+                model.ExistingAddresses.Add(addressModel);
+            }
+
+            //new address
+            model.NewAddress.CountryId = selectedCountryId;
+            model.NewAddress.PrepareModel(address: 
+                null,
+                excludeProperties: false,
+                addressSettings: _addressSettings,
+                localizationService: _localizationService,
+                stateProvinceService: _stateProvinceService,
+                addressAttributeService: _addressAttributeService,
+                addressAttributeParser: _addressAttributeParser,
+                loadCountries: () => _countryService.GetAllCountriesForBilling(),
+                prePopulateWithCustomerFields: prePopulateNewAddressWithCustomerFields,
+                customer: _workContext.CurrentCustomer);
+            return model;
+        }
         #endregion
 
         #region Methods
@@ -163,6 +202,13 @@ namespace Nop.Plugin.Misc.SimpleCheckout.Controllers
                 DisableBillingAddressCheckoutStep = _orderSettings.DisableBillingAddressCheckoutStep
             };
             return View(model);
+        }
+
+        [ChildActionOnly]
+        public ActionResult OpcBillingForm()
+        {
+            var billingAddressModel = PrepareBillingAddressModel(prePopulateNewAddressWithCustomerFields: true);
+            return PartialView("OpcBillingAddress", billingAddressModel);
         }
 
         #endregion
